@@ -140,8 +140,6 @@
 
 .content {
   padding-block-end: 55px;
-  
-  
 }
 
 .content__card-list {
@@ -243,7 +241,6 @@
 
 .card__content {
   border: 2px solid var(--accent-color);
-  
   padding: 25px;
 }
 
