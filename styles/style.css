@@ -44,11 +44,6 @@
   min-block-size: 100dvb; /*прекод*/
 }
 
-@supports (font-variation-settings: normal) {
-  .page {
-    font-weight: var(--text-weight);
-  }
-}
 
 .header {
   display: flex;
@@ -163,7 +158,6 @@
 
 .card__title {
   border: 2px solid var(--accent-color);
- 
   padding-inline: 10px;
   padding-block: 5px;
   font-weight: var(--title-weight);
@@ -184,7 +178,6 @@
   border-left: 2px solid var(--accent-color);
   padding: 0;
   inline-size: 100%;
-  
 }
 
 .card__image {
@@ -485,6 +478,16 @@ dialog__button:focus {
 .dialog::backdrop {
   opacity: 0.75;
   background-color: var(--bg-color);
+}
+
+@supports (font-variation-settings: normal) {
+  .page {
+    font-variation-settings: "wght" var(--text-weight)
+  }
+  
+  .card__title{
+    font-variation-settings: "wght" var(--title-weight)
+  }
 }
 
 @media (max-width: 375px) {
