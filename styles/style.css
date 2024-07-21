@@ -265,7 +265,39 @@
   font-size: 14px;
   line-height: 12.6px;
   background-color: transparent;
+  transition: all 0.3s ease;
   cursor: pointer;
+}
+
+.button:focus{
+  box-shadow: 2px 2px 0 0 var(--accent-color);
+  outline: none;
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--accent-color);
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.button:hover::after {
+  transform: scaleX(1);
+}
+
+.button__text {
+  position: relative;
+  z-index: 10;
+  color: var(--button-text-color);
+  font-family: var(--accent-font);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 12.6px;
+  text-align: center;
+  mix-blend-mode: difference;
 }
 
 .card__like-button {
@@ -360,8 +392,7 @@
 
 .save {
   display: flex;
-  justify-content: center;
-  
+  justify-content: center;  
 }
 
 .save__button {
@@ -374,7 +405,6 @@
   padding-block: 15px;
   color: var(--accent-color);
   background-color: var(--bg-color);
-  transition: all 0.3s ease;
 }
 
 .save__button-icon {
@@ -383,42 +413,6 @@
   color: var(--button-text-color);
   inline-size: 21px;
   block-size: 21px;
-  mix-blend-mode: difference;
-}
-
-.save__button:focus,
-.card__like-button:focus {
-  box-shadow: 2px 2px 0 0 var(--accent-color);
-  outline: none;
-}
-
-.save__button::after,
-.card__like-button::after,
-.dialog__button::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: var(--accent-color);
-  transition: transform 0.5s ease-in-out;
-  transform: scaleX(0);
-  transform-origin: left;
-}
-
-.save__button:hover::after,
-.card__like-button:hover::after,
-.dialog__button:hover::after {
-  transform: scaleX(1);
-}
-
-.button__text {
-  position: relative;
-  z-index: 10;
-  color: var(--button-text-color);
-  font-family: var(--accent-font);
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 12.6px;
-  text-align: center;
   mix-blend-mode: difference;
 }
 
@@ -431,7 +425,6 @@
   font-size: 14px;
   background-color: var(--bg-color);
   inline-size: 357px;
-  
 }
 
 .dialog__wrapper {
@@ -468,10 +461,6 @@
   inline-size: 100%;
 }
 
-dialog__button:focus {
-  outline: none;
-}
-
 .dialog::backdrop {
   opacity: 0.75;
   background-color: var(--bg-color);
@@ -479,11 +468,11 @@ dialog__button:focus {
 
 @supports (font-variation-settings: normal) {
   .page {
-    font-variation-settings: "wght" var(--text-weight)
+    font-variation-settings: "wght" var(--text-weight);
   }
   
   .card__title{
-    font-variation-settings: "wght" var(--title-weight)
+    font-variation-settings: "wght" var(--title-weight);
   }
 }
 
